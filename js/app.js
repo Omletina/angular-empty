@@ -1,9 +1,13 @@
 var myApp = angular.module('myApp', ['ui.router', 'myApp.main']);
 
-myApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
+myApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
+    function($stateProvider, $urlRouterProvider, $locationProvider) {
     //
     // For any unmatched url, redirect to /home
     $urlRouterProvider.otherwise("/home");
+
+    //
+    $locationProvider.html5Mode(true);
 
     // Now set up the states
     $stateProvider
