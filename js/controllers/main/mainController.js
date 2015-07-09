@@ -10,13 +10,15 @@
         $stateProvider
             .state('main', {
                 url: "/main",
-                templateUrl: "/js/controllers/main/main.html"
+                templateUrl: "/js/controllers/main/main.html",
+                controller: 'mainController'
             });
     }
 
-    mainController.$inject = ['$scope'];
+    mainController.$inject = ['$scope', '$stateParams'];
 
-    function mainController($scope) {
+    function mainController($scope, $stateParams) {
         // code
+        $scope.title = 'Main controller';
     }
 })();

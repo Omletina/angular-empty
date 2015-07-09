@@ -1,18 +1,24 @@
-var myApp = angular.module('myApp', ['ui.router', 'myApp.main']);
+var myApp = angular.module('myApp', [
+                                'ui.router',
+                                'myApp.main' // <= controller
+                                ]);
 
 myApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
     function($stateProvider, $urlRouterProvider, $locationProvider) {
     //
     // For any unmatched url, redirect to /home
-    $urlRouterProvider.otherwise("/home");
+    $urlRouterProvider.otherwise("/");
 
     //
-    $locationProvider.html5Mode(true);
+    $locationProvider.html5Mode({
+        enabled: true,
+        requireBase: false
+    });
 
     // Now set up the states
     $stateProvider
         .state('home', {
-            url: "/home",
+            url: "/",
             template: "Home template"
         })
         // .state('state2.list', {
